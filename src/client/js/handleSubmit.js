@@ -10,21 +10,25 @@ const handleSubmit = (e) => {
     let resultToPage = document.getElementById('results');
     let resultsSection = document.querySelector('.results-section');
     let error = document.querySelector('.error');
+    let loader = document.querySelector('.loader');
     let url = document.getElementById('url');
     let validate = Client.urlValidator(url.value);
 
     const routeURL = 'http://localhost:3030/analysis';
 
     if (validate) {
+        loader.style.display = 'block';
 
         Client.getNPLAnalysis(routeURL, {url: url.value})
             .then(analysis => {
                 if(analysis.status === '200') {
-                    url.value = ''; 
+                    url.value = '';
+                    loader.style.display = 'none'; 
                     resultToPage.innerHTML = '';
                     analysisResult(analysis, resultToPage, resultsSection);
                 } else {
                     error.style.display = 'block';
+                    loader.style.display = 'none'; 
                     error.innerText = 'The news you specified was not found!';
                     error.addEventListener('mouseover', () => {
                         error.style.display = 'none';
@@ -33,6 +37,7 @@ const handleSubmit = (e) => {
             });      
     } else {
         url.value = '';
+        loader.style.display = 'none'; 
         error.style.display = 'block';
         error.innerText = 'You entered the wrong url address!';
         error.addEventListener('mouseover', () => {

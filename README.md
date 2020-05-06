@@ -36,10 +36,17 @@ npm run prod
 
 // Starting local Server and App.
 npm run start 
+
+// Testing App.
+npm run test
 ```
 
 ### Project structure
 ```
+├── /__tests__/                                         // The folder with the files for testing.
+│       ├── getNPLAnalysis.spec.js                      // Instructions for testing the getNPLAnalysis function.
+│       └── urlValidator.spec.js                        // Instructions for testing the urlValidator function.
+│ 
 ├── /src/                                               // Application file folder.
 │       ├── /client/                                    // Folder with the client part of the application.
 │       │       ├── /js/                                // Folder for JS files.
