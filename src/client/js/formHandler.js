@@ -1,20 +1,46 @@
+'use strict';
 /* eslint-disable indent */
 /* eslint-disable no-undef */
-function handleSubmit(event) {
-    event.preventDefault();
+/**
+* @description  Event listener function for the form.
+* @param {event} e - data received when an event occurred.
+*/
+const handleSubmit = (e) => {
+    e.preventDefault();
 
-    // check what text was put into the form field
-    let formText = document.getElementById('name').value;
+    let formURL = document.getElementById('url').value;
+    const routeURL = 'http://localhost:3030/analysis';
 
-    checkForName(formText);
+   if (formURL) {
+        getNPLAnalysis(routeURL, {url: formURL})
+        .then(function (analysis) {
+           console.log(analysis);
+        });      
+    }
+};
 
-    console.log('::: Form Submitted :::');
-
-    fetch('http://localhost:8080/test')
-    .then(res => res.json())
-    .then(function(res) {
-        document.getElementById('results').innerHTML = res.message;
+/**
+* @description  Function for sending url news to the server.
+* @param {string} url - link for the server router.
+* @param {object} data - url news to send to the server.
+* @returns {object} - array of objects to store on the server.
+*/
+async function getNPLAnalysis(url = '', data = {}) {
+    let response = await fetch(url, {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
     });
+
+    try {
+        return await response.json();        
+    }
+    catch (error) {
+        return error;
+    }
 }
 
-export { handleSubmit };
+export { handleSubmit, getNPLAnalysis };
