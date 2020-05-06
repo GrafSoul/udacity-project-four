@@ -10,7 +10,7 @@
 
 - [x] Have a minimum of one form field
 
-- [ ] Make one request to the Aylien API
+- [x] Make one request to the Aylien API
 
 - [x] Use Sass for styling
 

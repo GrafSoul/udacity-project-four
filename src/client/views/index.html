@@ -20,23 +20,24 @@
         <main>
             <section>
                 <form onsubmit="return Client.handleSubmit(event)">
-                    <input 
-                        id="url" 
-                        type="text" 
-                        name="url" 
-                        value="https://www.bbc.com/news/world-us-canada-52553829" 
+                    <p class="error"></p>
+                    <input
+                        id="url"
+                        type="text"
+                        name="url"
+                        value="https://www.bbc.com/news/world-us-canada-52553829"
                         placeholder="Enter the news url">
-                    <input 
-                        type="submit" 
-                        name="submit" 
-                        value="submit" 
-                        onclick="return Client.handleSubmit(event)" 
+                    <input
+                        type="submit"
+                        name="submit"
+                        value="submit"
+                        onclick="return Client.handleSubmit(event)"
                         onsubmit="return Client.handleSubmit(event)">
                 </form>
             <section>
 
-            <section>
-                <strong>Form Results:</strong>
+            <section class="results-section">
+                <h2>Analysis result:</h2>
                 <div id="results"></div>
             </section>
         </main>

@@ -8,7 +8,9 @@ is subjective (opinion) or objective (fact-based) and whether it is positive, ne
 or negative in tone.
 
 ### Clone, Install, Development & Start
-Install [NodeJS] and run the following commands in consle.
+Install [NodeJS], then register in the [Aylien] service and get an id and key.    
+Clone the repository, create a ```.env``` file and fill it in by inserting your id and key.
+
 ```
 // Clone the repository.
 git clone https://github.com/GrafSoul/udacity-project-four.git
@@ -16,6 +18,13 @@ git clone https://github.com/GrafSoul/udacity-project-four.git
 // Go to the project folder.
 cd udacity-project-four
 
+// Code for .env file.
+API_ID=**************************
+API_KEY=**************************
+```
+
+And run the following commands in consle.
+```
 // Installing npm modules.
 npm install
 
@@ -76,4 +85,4 @@ The project uses [Aylien] API.
 [Udacity.com]: https://www.udcity.com/
 [Udacity repository]: https://github.com/udacity/fend/tree/refresh-2019
 [NodeJS]: https://nodejs.org/
-[Aylien]: https://aylien.com/
+[Aylien]: https://aylien.com/text-api/
