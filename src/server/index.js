@@ -6,10 +6,10 @@ const dotenv = require('dotenv');
 dotenv.config();
 const path = require('path');
 const express = require('express');
-const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const aylien = require('aylien_textapi');
+const serverless = require('serverless-http');
 
 /**
 * @description Setup empty JS object to act as endpoint for all routes.
@@ -20,6 +20,7 @@ let projectData = {};
 * @description Creating an instance of the app.
 */
 const app = express();
+const router = express.Router();
 
 /* Middleware*/
 /**
@@ -72,6 +73,8 @@ app.post('/analysis', (request, response) => {
         }
     });
 });
+  
+app.use('/.netlify/functions/api', router);
 
 module.exports = app;
 module.exports.handler = serverless(app);

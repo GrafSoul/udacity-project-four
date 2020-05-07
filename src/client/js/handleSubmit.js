@@ -15,7 +15,7 @@ const handleSubmit = (e) => {
     let url = document.getElementById('url');
     let validate = Client.urlValidator(url.value);
 
-    const routeURL = 'http://localhost:3030/analysis';
+    const routeURL = 'http://localhost:8081/analysis';
 
     if (validate) {
         loader.style.display = 'block';

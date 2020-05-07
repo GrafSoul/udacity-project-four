@@ -5,7 +5,7 @@ const app = require('../server/index');
 /**
 * @description Setup Server.
 */
-const port = 3030;
+const port = 8081;
 const server = app.listen(port, listening);
 
 function listening() {
