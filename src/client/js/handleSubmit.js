@@ -63,13 +63,13 @@ const analysisResult = (data, resultElement, resultsSection) => {
             <div class="polarity-box">
                 <div class="polarity">Polarity: <strong>${data.polarity}</strong></div>
                 <div class="polarity">
-                    Polarity confidence: <strong>${data.polarity_confidence.toFixed(2)}</strong>
+                    Polarity confidence: <strong>${convertToProcent(data.polarity_confidence)}</strong>
                 </div>
             </div>
             <div class="subjectivity-box">
                 <div class="subjectivity">Subjectivity: <strong>${data.subjectivity}</strong></div>
                 <div class="subjectivity">
-                    Subjectivity confidence: <strong>${data.subjectivity_confidence.toFixed(2)}</strong>
+                    Subjectivity confidence: <strong>${convertToProcent(data.subjectivity_confidence)}</strong>
                 </div>
             </div>
         </div>
@@ -80,6 +80,16 @@ const analysisResult = (data, resultElement, resultsSection) => {
     `;
     resultsSection.style.display = 'block';
     resultElement.innerHTML = entryElements;
+};
+
+/**
+* @description  The function converts the data into a percentage .
+* @param {number} num - floating point number.
+* @return {string} - returns a string as a percentage.
+*/
+const convertToProcent = (num) => {
+    let result = (num.toFixed(2))*100;
+    return `${result}%`;
 };
 
 export { handleSubmit };
