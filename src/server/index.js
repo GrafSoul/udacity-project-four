@@ -8,8 +8,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const opn = require('opn');
 const aylien = require('aylien_textapi');
-const serverless = require('serverless-http');
 
 /**
 * @description Setup empty JS object to act as endpoint for all routes.
@@ -20,7 +20,6 @@ let projectData = {};
 * @description Creating an instance of the app.
 */
 const app = express();
-const router = express.Router();
 
 /* Middleware*/
 /**
@@ -73,8 +72,27 @@ app.post('/analysis', (request, response) => {
         }
     });
 });
-  
-app.use('/.netlify/functions/api', router);
 
+/**
+* @description Setup Server.
+*/
+const PORT = process.env.PORT || 8081;
+const server = app.listen(PORT, listening);
+
+function listening() {
+    console.log('*************************************');
+    console.log(` Your API id is: ${process.env.API_ID}`);
+    console.log(` Your API key is: ${process.env.API_KEY}`);
+    console.log(' Server started Successfully!');
+    console.log(` Running on - http://localhost:${PORT}'`);
+    console.log('=====================================');
+    console.log(' To stop the server, Press - Ctrl+C');
+    console.log('*************************************');
+}
+
+/**
+* @description Opening the app in the browser.
+*/
+server ? opn(`http://localhost:${PORT}`) : null ;
+  
 module.exports = app;
-module.exports.handler = serverless(app);

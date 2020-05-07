@@ -15,7 +15,8 @@ const handleSubmit = (e) => {
     let url = document.getElementById('url');
     let validate = Client.urlValidator(url.value);
 
-    const routeURL = 'http://localhost:8081/analysis';
+    const PORT = process.env.PORT || 8081;
+    const routeURL = `http://localhost:${PORT}/analysis`;
 
     if (validate) {
         loader.style.display = 'block';
