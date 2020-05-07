@@ -9,6 +9,7 @@ const handleSubmit = (e) => {
 
     let resultToPage = document.getElementById('results');
     let resultsSection = document.querySelector('.results-section');
+    let resultsEmpty = document.querySelector('.results-empty');
     let error = document.querySelector('.error');
     let loader = document.querySelector('.loader');
     let url = document.getElementById('url');
@@ -18,26 +19,30 @@ const handleSubmit = (e) => {
 
     if (validate) {
         loader.style.display = 'block';
+        resultsSection.style.display = 'none';
+        resultsEmpty.style.display = 'none';
 
         Client.getNPLAnalysis(routeURL, {url: url.value})
             .then(analysis => {
                 if(analysis.status === '200') {
                     url.value = '';
-                    loader.style.display = 'none'; 
+                    loader.style.display = 'none';
                     resultToPage.innerHTML = '';
+                    resultsSection.style.display = 'block';
                     analysisResult(analysis, resultToPage, resultsSection);
                 } else {
                     error.style.display = 'block';
-                    loader.style.display = 'none'; 
+                    loader.style.display = 'none';
+                    resultsEmpty.style.display = 'block';
                     error.innerText = 'The news you specified was not found!';
                     error.addEventListener('mouseover', () => {
                         error.style.display = 'none';
                     });
                 }
-            });      
+            });
     } else {
         url.value = '';
-        loader.style.display = 'none'; 
+        loader.style.display = 'none';
         error.style.display = 'block';
         error.innerText = 'You entered the wrong url address!';
         error.addEventListener('mouseover', () => {
@@ -52,23 +57,26 @@ const handleSubmit = (e) => {
 * @param {Node} resultElement - Element on the page where new information will be added.
 * @param {Node} resultsSection - Section on the page where new information will be added.
 */
-const analysisResult = (data, resultElement, resultsSection) => { 
+const analysisResult = (data, resultElement, resultsSection) => {
     let entryElements = `
         <div class="result-info">
-
-            <div class="polarity">Polarity: <b>${data.polarity}</b></div>
-            <div class="polarity-confidence">
-                Polarity confidence: <b>${data.polarity_confidence.toFixed(2)}</b>
+            <div class="polarity-box">
+                <div class="polarity">Polarity: <strong>${data.polarity}</strong></div>
+                <div class="polarity">
+                    Polarity confidence: <strong>${data.polarity_confidence.toFixed(2)}</strong>
+                </div>
             </div>
-
-            <div class="subjectivity">Subjectivity: <b>${data.subjectivity}</b></div>
-            <div class="subjectivity-confidence">
-                Subjectivity confidence: <b>${data.subjectivity_confidence.toFixed(2)}</b>
+            <div class="subjectivity-box">
+                <div class="subjectivity">Subjectivity: <strong>${data.subjectivity}</strong></div>
+                <div class="subjectivity">
+                    Subjectivity confidence: <strong>${data.subjectivity_confidence.toFixed(2)}</strong>
+                </div>
             </div>
-
-            <div class="text">${data.text}</div>
-
         </div>
+        <div class="result-text">
+            <h2>Analyzed text:</h2>
+            <div class="text">${data.text}</div>
+        </div>  
     `;
     resultsSection.style.display = 'block';
     resultElement.innerHTML = entryElements;

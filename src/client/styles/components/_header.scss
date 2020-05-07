@@ -1,5 +1,24 @@
+/*
+* Header block styles.
+*/
+
 header {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 40px;
+    border-bottom: 1px solid $color-pd;
+
+    .logo {
+        text-align: center;
+        font-size: 1.8em;
+        font-weight: 300;
+        color: $color-w;
+        text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+
+        &-icon {
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+    }
 }

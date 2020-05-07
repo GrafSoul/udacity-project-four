@@ -56,9 +56,11 @@ npm run test
 │       │       ├── /styles/                            // Folder with styles.
 │       │       │     ├── /componets/                   // Folder with parts of styles.
 │       │       │     │       ├── _base.scss            // Basic styles.
-│       │       │     │       ├── _footer.scss          // Footer styles.
-│       │       │     │       ├── _form.scss            // Form styles.
-│       │       │     │       ├── _header.scss          // Header styles.
+│       │       │     │       ├── _config.scss          // Config variables.
+│       │       │     │       ├── _footer.scss          // Footer block styles.
+│       │       │     │       ├── _form.scss            // Form block styles.
+│       │       │     │       ├── _header.scss          // Header block styles.
+│       │       │     │       ├── _results.scss         // Results block styles.
 │       │       │     │       └── _resets.scss          // Resets styles.
 │       │       │     └── styles.scss                   // The main file of styles.
 │       │       │
@@ -87,9 +89,9 @@ npm run test
 The contents of the repository can be freely used and distributed. 😀
 
 The project is based on the [Udacity repository].  
-The project uses [Aylien] API.
+The project uses [Aylien Text Analysis API].
 
 [Udacity.com]: https://www.udcity.com/
 [Udacity repository]: https://github.com/udacity/fend/tree/refresh-2019
 [NodeJS]: https://nodejs.org/
-[Aylien]: https://aylien.com/text-api/
+[Aylien Text Analysis API]: https://aylien.com/text-api/

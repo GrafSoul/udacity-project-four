@@ -12,9 +12,7 @@
     <body>
 
         <header>
-            <h1 class="logo">
-                {NA} News Analyzer
-            </h1>
+            <h1 class="logo"><span class="logo-icon">[NA]</span> News Analyzer</h1>
         </header>
 
         <main>
@@ -25,27 +23,49 @@
                         id="url"
                         type="text"
                         name="url"
-                        value="https://www.bbc.com/news/world-us-canada-52553829"
-                        placeholder="Enter the news url">
+                        autofocus
+                        placeholder="Enter the News Url">
                     <input
+                        id="submit"
                         type="submit"
                         name="submit"
-                        value="submit"
+                        value="Get an Analysis"
                         onclick="return Client.handleSubmit(event)"
-                        onsubmit="return Client.handleSubmit(event)">
-                    <div class="loader">Loading...</div>    
+                        onsubmit="return Client.handleSubmit(event)">  
                 </form>
+            </section>
 
             <section>
-
-            <section class="results-section">
-                <h2>Analysis result:</h2>
-                <div id="results"></div>
+                <div class="results-box">
+                    <div class="loader">
+                        <div class="lds-default">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>  
+                    <div class="results-empty">
+                        <h2>Here will be the results of the analysis</h2>
+                    </div>
+                    <div class="results-section">
+                        <h2>Analysis result:</h2>
+                        <div id="results"></div>
+                    </div>
+                </div> 
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <p class="copyright">© News Analyzer | 2020 | Created by Dmitriy Zatulovskiy | Web API used - <a href="https://aylien.com/text-api/" target="_blank">Aylien Text Analysis API</a></p>
         </footer>
 
     </body>

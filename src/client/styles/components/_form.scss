@@ -1,22 +1,61 @@
-form {
-    border: 1px solid #545454;
-    border-radius: 3px;
-    padding: 40px;
+/*
+* Form block styles.
+*/
 
-    input {
-        padding: 5px 20px;
+form {
+    padding: 20px 40px 20px;
+    position: relative;
+
+    #url {
         width: 100%;
-        line-height: 16px;
         margin: 10px 0;
+        padding: 10px 20px;
+        text-align: center;
+        font-size: 1.4em;
+        color: $color-pd;
+        border: none;
+        background-color: $color-bg;
+    }
+
+    #submit {
+        padding: 12px 20px;
+        width: 100%;
+        margin: 10px 0;
+        text-align: center;
+        font-size: 1.2em;
+        border: 1px solid rgb(31, 107, 139);
+        color: $color-sl;
+        border-radius: 10px;
+        cursor: pointer;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background: rgb(22,77,100);
+        background: -moz-linear-gradient(top,  rgb(22,77,100) 0%, rgb(0,36,53) 100%);
+        background: -webkit-linear-gradient(top,  rgb(22,77,100) 0%,rgb(0,36,53) 100%);
+        background: linear-gradient(to bottom,  rgb(22,77,100) 0%,rgb(0,36,53) 100%);
+        box-shadow: 1px 3px 12px rgba(0, 0, 0, 0.8);
+        transition: all 0.3s ease;
+
+        &:active,
+        &:hover {
+            background: rgb(27, 101, 133); 
+            background: -moz-linear-gradient(top,  rgb(27, 101, 133) 0%, rgb(0,36,53) 100%);
+            background: -webkit-linear-gradient(top, rgb(27, 101, 133) 0%,rgb(0,36,53) 100%);
+            background: linear-gradient(to bottom,  rgb(27, 101, 133) 0%,rgb(0,36,53) 100%);
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+        }
     }
 
     .error {
+        padding: 13px 15px 13px;
         display: none;
-    }
-
-    .loader {
-        display: none;
+        text-align: center;
+        font-size: 1.1em;
+        color: $color-sl;
+        background-color: $color-e;
+        position:absolute;
+        top: 30px;
+        left: 40px;
+        right: 40px;
     }
 }
-
-

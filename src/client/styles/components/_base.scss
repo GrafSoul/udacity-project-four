@@ -1,8 +1,15 @@
+/*
+* Basic styles.
+*/
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    font: 16px Roboto, sans-serif;
+    min-width: 320px;
+    font: 16px $font-family;
+    background: url('../images/bg_news.jpg') center center no-repeat;
+    background-size: cover;
 }
 
 main {
@@ -11,5 +18,5 @@ main {
 
 section {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 0 auto;
 }

@@ -53,3 +53,39 @@ table {
 ul {
     list-style-type: none;
 }
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/* Style for Placeholder Text*/
+input::placeholder {
+    font-size: 0.9em;
+    text-align: center;
+    color: $color-p;
+}
+
+input:-ms-input-placeholder { 
+    font-size: 0.9em;
+    text-align: center;
+    color: $color-p;
+}
+
+input::-ms-input-placeholder { 
+    font-size: 0.9em;
+    text-align: center;
+    color: $color-p;
+}
+
+::selection {
+	background: $color-p; 
+}
+
+::-moz-selection {
+	background: $color-p;
+}
+
