@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config webpack.config/webpack.dev.js --open",
     "prod": "webpack --config webpack.config/webpack.prod.js",
-    "start": "node src/server/index.js",
+    "start": "node src/server/index.local.js",
+    "serv": "node src/server/index.js",
     "test": "jest --coverage"
   },
   "keywords": [
@@ -24,6 +25,7 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "serverless-http": "^2.3.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
   },

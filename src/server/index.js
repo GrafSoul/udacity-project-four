@@ -6,9 +6,9 @@ const dotenv = require('dotenv');
 dotenv.config();
 const path = require('path');
 const express = require('express');
+const serverless = require('serverless-http');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const opn = require('opn');
 const aylien = require('aylien_textapi');
 
 /**
@@ -37,28 +37,6 @@ app.use(cors());
 * @description Initialize the main project folder.
 */
 app.use(express.static('dist'));
-
-/**
-* @description Setup Server.
-*/
-const port = 3030;
-const server = app.listen(port, listening);
-
-function listening() {
-    console.log('*************************************');
-    console.log(` Your API id is: ${process.env.API_ID}`);
-    console.log(` Your API key is: ${process.env.API_KEY}`);
-    console.log(' Server started Successfully!');
-    console.log(` Running on - http://localhost:${port}'`);
-    console.log('=====================================');
-    console.log(' To stop the server, Press - Ctrl+C');
-    console.log('*************************************');
-}
-
-/**
-* @description Opening the app in the browser.
-*/
-server ? opn(`http://localhost:${port}`) : null ;
 
 /**
 * @description Route for opening the main page of the app.
@@ -96,3 +74,4 @@ app.post('/analysis', (request, response) => {
 });
 
 module.exports = app;
+module.exports.handler = serverless(app);
