@@ -74,8 +74,7 @@ npm run test
 │       │       └── index.js                            // Main JS file of the app.
 │       │
 │       └── /server/                                    // Folder of the server part of the application
-│               ├── index.js                            // Express server file.
-│               └── mockAPI.js                          // File with dummy data for the API test. 
+│               └── index.js                            // Express server file.
 │
 ├── /webpack.config/                                    // Folder with Webpack configuration files.
 │       ├── webpack.dev.js                              // Webpack configuration file for development. 
