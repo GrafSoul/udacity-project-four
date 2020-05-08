@@ -7,6 +7,9 @@ This tool will give us back pertinent information about the article, like whethe
 is subjective (opinion) or objective (fact-based) and whether it is positive, neutral, 
 or negative in tone.
 
+### Demo
+Heroku Hosting - [News Analyzer] 
+
 ### Clone, Install, Development & Start
 Install [NodeJS], then register in the [Aylien] service and get an id and key.    
 Clone the repository, create a ```.env``` file and fill it in by inserting your id and key.
@@ -21,6 +24,7 @@ cd udacity-project-four
 // Code for .env file.
 API_ID=**************************
 API_KEY=**************************
+NODE_ENV=development
 ```
 
 And run the following commands in consle.
@@ -95,3 +99,4 @@ The project uses [Aylien Text Analysis API].
 [Udacity repository]: https://github.com/udacity/fend/tree/refresh-2019
 [NodeJS]: https://nodejs.org/
 [Aylien Text Analysis API]: https://aylien.com/text-api/
+[News Analyzer]: https://newsnlpanalysis.herokuapp.com/ 

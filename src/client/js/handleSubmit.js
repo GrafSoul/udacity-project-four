@@ -15,8 +15,11 @@ const handleSubmit = (e) => {
     let url = document.getElementById('url');
     let validate = Client.urlValidator(url.value);
 
-    const PORT = process.env.PORT || 8081;
-    const routeURL = `http://localhost:${PORT}/analysis`;
+    const routeURL = process.env.NODE_ENV === 'development' ?
+        'http://localhost:3030/analysis':
+        `${window.location.href}analysis`;
+
+    console.log();
 
     if (validate) {
         loader.style.display = 'block';
@@ -89,7 +92,7 @@ const analysisResult = (data, resultElement, resultsSection) => {
 * @return {string} - returns a string as a percentage.
 */
 const convertToProcent = (num) => {
-    let result = (num.toFixed(2))*100;
+    let result = ((+num.toFixed(2))*100).toFixed(0);
     return `${result}%`;
 };
 

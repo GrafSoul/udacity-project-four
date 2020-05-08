@@ -16,8 +16,8 @@ const getNPLAnalysis = async(url = '', data = {}) => {
     });
 
     try {
-        result = await response.json();        
-        return result;        
+        result = await response.json();
+        return result;
     } catch(error) {
         result.status = 'Invalid getting data';
         return result;
